@@ -1,0 +1,135 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  -webkit-font-feature-settings: "kern";
+  font-feature-settings: "kern";
+  -webkit-font-smooth: antialiased;
+  font-smooth: antialiased;
+}
+body {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: #4c6986;
+}
+h1 {
+  font-size: 70px;
+  font-weight: bold;
+  max-width: 600px;
+  font-family: "Montserrat", sans-serif;
+}
+.wrapper {
+  height: 800px;
+  max-width: 1440px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.restart {
+  cursor: pointer;
+  width: 210px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  border: 2px solid #4c6986;
+  transition: all 0.2s ease;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.restart:hover {
+  background: #4c6986;
+  color: white;
+}
+.game {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  display: flex;
+  color: #9a9a9a;
+  font-size: 24px;
+}
+.header .player-x {
+  flex: 1;
+  border-bottom: 5px solid #eee;
+
+  padding-bottom: 8px;
+}
+.header .player-x.active {
+  color: #42bed7;
+  border-color: #42bed7;
+}
+.header .player-y {
+  flex: 1;
+  border-bottom: 5px solid #eee;
+  border-radius: 5px;
+  padding-bottom: 8px;
+}
+.header .player-y.active {
+  color: #d7bafb;
+  border-color: #d7bafb;
+}
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 0;
+  flex-grow: 1;
+  padding: 10px;
+}
+
+.board .board-tile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 80px;
+  background: white;
+  cursor: pointer;
+}
+
+.board-tile:not(:nth-child(3n)) {
+  border-right: 3px solid rgba(137, 163, 189, 0.3);
+}
+
+.board-tile:not(:nth-last-child(-n + 3)) {
+  border-bottom: 3px solid rgba(137, 163, 189, 0.3);
+}
+
+.board-tile:hover {
+  background: #eee;
+}
+.tile-x {
+  color: #42bed7;
+}
+.tile-y {
+  color: #d7bafb;
+}
+
+.tile-winner span {
+  color: #23ce6b;
+}
+@media only screen and (max-width: 1200px) {
+  .wrapper {
+    flex-direction: column;
+  }
+  .left {
+    margin-bottom: 30px;
+  }
+  h1 {
+    font-size: 40px;
+  }
+}
